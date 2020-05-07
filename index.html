@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+    <!-- Chrome might need the option: --allow-file-access-from-files -->
     <meta charset="utf-8">
     <title>HTML5 Presentations How-To</title>
     <link rel="stylesheet" href="css/reveal.css">
@@ -12,6 +13,7 @@
         <section>
             <h1>HTML5 Presentations</h1>
             <h3>How to create presentations for web browsers</h3>
+            <aside class="notes">Some speaker notes</aside>
         </section>
         <section>
             <h1>About this presentation</h1>
@@ -44,7 +46,12 @@
         mouseWheel: false,
         center: true,
         history: true,
-        transition: 'default'
+        transition: 'default',
+        dependencies: [{
+            // press 'S' key for speaker view
+            src: 'plugin/notes/notes.js',
+            async: true
+        }]
     });
 </script>
 </body>
