@@ -1,0 +1,28 @@
+$text_color: #000;
+$font_size: 24px;
+
+body {
+  font-size: $font_size;
+  color: $text_color;
+}
+
+h1 {
+  color: $text_color;
+  span {
+    font-size: 10px;
+  }
+}
+
+@mixin border-radius($radius: 3px) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+#nav {
+  @include border-radius(10px);
+}
+
+#button {
+  @include border-radius;
+}
