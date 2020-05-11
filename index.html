@@ -25,6 +25,7 @@
     .packt-state h1 {
         color: yellow;
     }
+
     .packt-state p {
         color: #fff;
     }
@@ -39,11 +40,59 @@
         color: #ffffff;
         font-family: Helvetica, Arial, sans-serif;
     }
+
+    #navigation-bar {
+        position: fixed;
+        left: 0;
+        bottom: 2px;
+        width: 100%;
+        height: 50px;
+        z-index: 20;
+        background-color: #fff;
+        border-top: 6px solid #df0d32;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+
+    #navigation-bar nav {
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    #navigation-bar a {
+        display: inline-block;
+        padding: 0 10px;
+        border-right: 2px solid #ccc;
+        text-decoration: none;
+        color: #df0d32;
+    }
+
+    #navigation-bar a:last-child {
+        border-right: none;
+    }
+
+    #navigation-bar a:hover {
+        text-decoration: underline;
+    }
     </style>
 </head>
 <body>
+<div id="navigation-bar">
+    <nav>
+        <a onclick="Reveal.slide(0);">&laquo;&laquo; first</a>
+        <a onclick="Reveal.prev();">&laquo; previous</a>
+        <a onclick="Reveal.slide(0);">html5 presentations</a>
+        <a onclick="Reveal.slide(1);">about this presentation</a>
+        <a onclick="Reveal.slide(2);">reveal.js</a>
+        <a onclick="Reveal.slide(3);">references</a>
+        <a onclick="Reveal.slide(4);">about the author</a>
+        <a onclick="Reveal.slide(5);">why use reveal.js</a>
+        <a onclick="Reveal.next();">next &raquo;</a>
+        <a onclick="Reveal.slide(5);">last &raquo;&raquo;</a>
+    </nav>
+</div>
+
 <div class="timer">Elapsed time:
-<span id="elapsed-time">00:00:00</span>
+    <span id="elapsed-time">00:00:00</span>
 </div>
 
 <div class="reveal">
@@ -85,9 +134,9 @@
         <section>
             <section data-markdown>
                 <script type="text/template">
-                # Why use reveal.js?
+                    # Why use reveal.js?
 
-                Check full list of features [here](https://revealjs.com/)
+                    Check full list of features [here](https://revealjs.com/)
                 </script>
             </section>
             <section>
@@ -132,7 +181,7 @@
         let seconds = -1;
         let clock = document.getElementById('elapsed-time'),
             pad = function (n) {
-            return (n < 10 ? '0' + n : n);
+                return (n < 10 ? '0' + n : n);
             },
             elapse = function () {
                 let s, h, m;
@@ -145,8 +194,8 @@
                 clock.innerHTML = pad(h) + ':' + pad(m) + ':' + pad(s);
             };
 
-            window.timer = setInterval(elapse, 1000);
-            elapse();
+        window.timer = setInterval(elapse, 1000);
+        elapse();
 
     };
 
