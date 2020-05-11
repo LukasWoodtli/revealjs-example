@@ -60,8 +60,12 @@
         </section>
 
         <section>
-            <section>
-                <h1>Why use jeveal.js?</h1>
+            <section data-markdown>
+                <script type="text/template">
+                # Why use reveal.js?
+
+                Check full list of features [here](https://revealjs.com/)
+                </script>
             </section>
             <section>
                 <h1>Cross browser and platform</h1>
@@ -87,6 +91,12 @@
         dependencies: [{
             // press 'S' key for speaker view
             src: 'plugin/notes/notes.js',
+            async: true
+        }, {
+            src: 'plugin/markdown/marked.js',
+            async: true
+        }, {
+            src: 'plugin/markdown/markdown.js',
             async: true
         }]
     });
