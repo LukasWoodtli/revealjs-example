@@ -28,9 +28,24 @@
     .packt-state p {
         color: #fff;
     }
+
+    .timer {
+        z-index: 1000;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 12px;
+        background-color: #df0d32;
+        color: #ffffff;
+        font-family: Helvetica, Arial, sans-serif;
+    }
     </style>
 </head>
 <body>
+<div class="timer">Elapsed time:
+<span id="elapsed-time">00:00:00</span>
+</div>
+
 <div class="reveal">
     <div class="slides">
         <section>
@@ -78,7 +93,7 @@
             <section>
                 <h1>Cross browser and platform</h1>
             </section>
-            <section>
+            <section data-last>
                 <h1>Open source!!!</h1>
             </section>
         </section>
@@ -112,6 +127,37 @@
     Reveal.addEventListener('packt-state', function () {
         window.alert("Event listener for 'packt-state' called");
     });
+
+    let elapsedTime = function () {
+        let seconds = -1;
+        let clock = document.getElementById('elapsed-time'),
+            pad = function (n) {
+            return (n < 10 ? '0' + n : n);
+            },
+            elapse = function () {
+                let s, h, m;
+                seconds++;
+                s = seconds;
+                h = Math.floor(s / 3600);
+                s %= 3600;
+                m = Math.floor(s / 60);
+                s %= 60;
+                clock.innerHTML = pad(h) + ':' + pad(m) + ':' + pad(s);
+            };
+
+            window.timer = setInterval(elapse, 1000);
+            elapse();
+
+    };
+
+    Reveal.addEventListener('ready', elapsedTime);
+
+    Reveal.addEventListener('slidechanged', function (e) {
+        if (e.currentSlide.getAttribute('data-last') !== null) {
+            clearInterval(window.timer)
+        }
+    });
+
 </script>
 </body>
 </html>
