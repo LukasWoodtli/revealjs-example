@@ -20,7 +20,15 @@
         -ms-transform: scale(2.5);
         -o-transform: scale(2.5);
         transform: scale(2.5);
-    }  </style>
+    }
+
+    .packt-state h1 {
+        color: yellow;
+    }
+    .packt-state p {
+        color: #fff;
+    }
+    </style>
 </head>
 <body>
 <div class="reveal">
@@ -31,7 +39,7 @@
             <a href="#/4">About the autor</a>
             <aside class="notes">Some speaker notes</aside>
         </section>
-        <section>
+        <section data-state="packt-state" data-background="rgba(0, 0, 0, .6)">
             <h1>About this presentation</h1>
             <p>This is the example presentation for the book HTML5 Presentations How-To</p>
         </section>
@@ -99,6 +107,10 @@
             src: 'plugin/markdown/markdown.js',
             async: true
         }]
+    });
+
+    Reveal.addEventListener('packt-state', function () {
+        window.alert("Event listener for 'packt-state' called");
     });
 </script>
 </body>
