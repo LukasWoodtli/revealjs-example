@@ -6,6 +6,21 @@
     <title>HTML5 Presentations How-To</title>
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/packt.css">
+    <style>  .reveal.packt .slides > section.past {
+        -webkit-transform: scale(.1);
+        -moz-transform: scale(.1);
+        -ms-transform: scale(.1);
+        -o-transform: scale(.1);
+        transform: scale(.1);
+    }
+
+    .reveal.packt .slides > section.future {
+        -webkit-transform: scale(2.5);
+        -moz-transform: scale(2.5);
+        -ms-transform: scale(2.5);
+        -o-transform: scale(2.5);
+        transform: scale(2.5);
+    }  </style>
 </head>
 <body>
 <div class="reveal">
@@ -46,7 +61,7 @@
         mouseWheel: false,
         center: true,
         history: true,
-        transition: 'default',
+        transition: 'packt',  // see style opens in <head>
         dependencies: [{
             // press 'S' key for speaker view
             src: 'plugin/notes/notes.js',
